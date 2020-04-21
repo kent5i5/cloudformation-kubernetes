@@ -10,7 +10,7 @@ Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kube
 It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.
 As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.
 
-This script will create 1 instance of EC2 instances and will scale up if necessary.
+This script will create 2 instance of EC2 instances and will scale up if necessary.
 
 EC2 Instances Installations:
 docker

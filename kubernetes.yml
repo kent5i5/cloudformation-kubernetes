@@ -1,5 +1,7 @@
 Description: >
-    Kubernetes Servers 
+    This template deploys 2 Ubuntu 18 server with two vCPUs. Both server run the kubernetes and will update with a 
+    docker container. One instance will service as main while second one will service as developement instance.
+    ying kit ng April 21,2020
     ying kit ng April 2, 2020
 
 Parameters:

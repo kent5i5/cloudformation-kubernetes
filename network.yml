@@ -1,8 +1,6 @@
 Description: >
- This template deploys 4 Ubuntu 18 server with two vCPUs and at least 4GB of RAM and 10GB of disk space.
- 2 server will be located in each of your private subnets. Data will be retrieve from S3 bucket. 
- Triffic will go through a load balancer
- ying kit ng Feb 13, 2020
+ This template create Vpc, 2 public subnets and netgatways.
+ ying kit ng April 21,2020
 Parameters:
 # whatever you consider a changing value, put it as a parameter instead of hard-coding it into your script
     EnvironmentName:
@@ -79,28 +77,6 @@ Resources:
             Tags: 
                 - Key: Name 
                   Value: !Sub ${EnvironmentName} Public Subnet (AZ2)
-
-    PrivateSubnet1: 
-        Type: AWS::EC2::Subnet
-        Properties:
-            VpcId: !Ref VPC
-            AvailabilityZone: !Select [ 0, !GetAZs '' ]
-            CidrBlock: !Ref PrivateSubnet1CIDR
-            MapPublicIpOnLaunch: false
-            Tags: 
-                - Key: Name 
-                  Value: !Sub ${EnvironmentName} Private Subnet (AZ1)
-
-    # PrivateSubnet2: 
-    #     Type: AWS::EC2::Subnet
-    #     Properties:
-    #         VpcId: !Ref VPC
-    #         AvailabilityZone: !Select [ 1, !GetAZs '' ]
-    #         CidrBlock: !Ref PrivateSubnet2CIDR
-    #         MapPublicIpOnLaunch: false
-    #         Tags: 
-    #             - Key: Name 
-    #               Value: !Sub ${EnvironmentName} Private Subnet (AZ2)
 
     NatGateway1EIP:
         Type: AWS::EC2::EIP
